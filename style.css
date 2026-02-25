@@ -2,167 +2,71 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', sans-serif;
-    background-color: #121212; /* Warna gelap intro */
+    background-color: #121212;
     color: white;
-    overflow-x: hidden;
+    display: flex;
+    justify-content: center; /* Menjaga konten tetap di tengah laptop */
     transition: background 1.5s ease;
+}
+
+/* PEMBUNGKUS UTAMA: Ini kuncinya */
+/* Memaksa lebar di laptop agar sama dengan lebar HP */
+#section1, #section2 {
+    width: 100%;
+    max-width: 450px; /* Lebar standar layar HP */
+    min-height: 100vh;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5); /* Efek bayangan di sisi laptop agar fokus */
 }
 
 .hidden { display: none !important; }
 
-/* Intro Kado */
-.intro-container {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.gift-icon {
-    font-size: 100px;
-    cursor: pointer;
-    transition: 0.3s;
-    animation: goyang 1s infinite;
-}
-
-@keyframes goyang {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(5deg); }
-    50% { transform: rotate(-5deg); }
-    100% { transform: rotate(0deg); }
-}
-
 /* Konten Utama */
 .main-content {
     background: linear-gradient(to bottom, #d81b60, #f06292);
-    min-height: 100vh;
-    padding: 40px 20px;
+    padding: 40px 10px; /* Padding diperkecil agar pas di layar sempit */
     text-align: center;
 }
 
-.header-text h1 { font-size: 2.5em; margin-bottom: 5px; }
-.title-kenangan { margin-top: 50px; font-style: italic; opacity: 0.9; }
-
-/* Polaroid */
+/* Galeri Polaroid agar tetap rapi ke bawah jika tidak muat */
 .gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
-    margin: 40px 0;
+    gap: 15px;
+    margin: 30px 0;
 }
 
 .polaroid {
     background: white;
-    padding: 10px 10px 30px 10px;
-    width: 200px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    padding: 8px 8px 20px 8px;
+    width: 160px; /* Ukuran foto disesuaikan agar 2 foto muat bersisian di HP */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     transform: rotate(var(--r));
-    transition: 0.3s;
 }
 
-.polaroid:hover { transform: rotate(0deg) scale(1.1); z-index: 5; }
-.polaroid img { width: 100%; height: 200px; object-fit: cover; }
-.polaroid p { color: #333; font-size: 13px; margin-top: 15px; font-weight: bold; }
-/* Styling Video */
-/* Wish Section & Lilin */
-.wish-section { margin-top: 100px; }
-.cake-container { position: relative; font-size: 80px; margin: 20px 0; }
-.candles {
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 10px;
-}
-/* ... (kode polaroid sebelumnya) ... */
-
-.polaroid p { 
-    color: #333; 
-    font-size: 13px; 
-    margin-top: 15px; 
-    font-weight: bold; 
+.polaroid img { 
+    width: 100%; 
+    height: 160px; /* Foto kotak agar presisi */
+    object-fit: cover; 
 }
 
-/* ... (kode polaroid sebelumnya) ... */
-
-.polaroid p { 
-    color: #333; 
-    font-size: 13px; 
-    margin-top: 15px; 
-    font-weight: bold; 
-}
-/* Menyelaraskan Video agar di bawah tengah foto */
-.video-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin-top: -10px; /* Menarik sedikit ke atas agar dekat dengan foto */
-    margin-bottom: 50px;
-}
-
+/* Video agar full lebar kontainer */
 .video-wrapper {
     background: white;
-    padding: 15px 15px 25px 15px; /* Padding bawah lebih besar seperti polaroid */
+    padding: 10px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    width: 90%;
-    max-width: 350px; /* Ukuran video sedikit lebih besar dari foto */
-    border-radius: 2px;
-    transform: rotate(1deg); /* Miring sedikit agar senada dengan foto */
-    transition: 0.3s;
+    width: 85%; /* Mengikuti lebar layar */
+    margin: 0 auto;
+    border-radius: 4px;
 }
 
-.video-wrapper:hover {
-    transform: rotate(0deg) scale(1.05);
-}
-
-.video-wrapper video {
-    width: 100%;
-    display: block;
-    border-radius: 2px;
-}
-
-.video-caption {
-    color: #333;
-    font-family: 'Arial', sans-serif;
-    font-weight: bold;
-    font-size: 14px;
-    margin-top: 15px;
-    text-align: center;
-}
-/* --- LANJUT KE WISH SECTION --- */
-
-.wish-section { margin-top: 100px; }
-
-/* ... (dan seterusnya) ... */
-.candle { cursor: pointer; font-size: 30px; transition: 0.3s; }
-
-/* Surat */
+/* Surat agar tidak keluar layar */
 .card-letter {
     background: white;
     color: #333;
-    max-width: 400px;
-    margin: 50px auto;
+    width: 90%; 
+    margin: 30px auto;
     border-radius: 15px;
-    overflow: hidden;
-    text-align: left;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    animation: popUp 0.8s ease;
-}
-
-@keyframes popUp {
-    from { transform: scale(0.5); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-.card-header { background: #d81b60; color: white; padding: 15px; font-weight: bold; font-size: 1.2em; text-align: center; }
-.card-body { padding: 25px; line-height: 1.6; }
-.level-up { text-align: center; color: #d81b60; font-weight: bold; font-size: 1.3em; margin: 20px 0; }
-.btn-simpan { background: #d81b60; color: white; border: none; padding: 12px; width: 100%; border-radius: 25px; cursor: pointer; font-weight: bold; }
-
-.btn-action {
-    background: white; color: #d81b60; border: none; padding: 10px 20px; border-radius: 20px; font-weight: bold; cursor: pointer; margin-top: 20px;
 }

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <audio id="lagu" loop>
+        <source src="Sal Priadi - Kita usahakan rumah itu (Official Lyric Video).mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="section1" class="intro-container">
+        <div class="gift-wrapper" onclick="kadoDiklik()">
+            <div class="gift-icon">🎁</div>
+            <div class="gift-line"></div>
+        </div>
+        <h2 id="teksKlik">Klik kadonya untuk buka ❤️</h2>
+    </div>
+    <div id="section2" class="main-content hidden">
+        <div class="header-text">
+            <h1>Happy Birthday! ✨</h1>
+            <p>Panjang Umur dan Sukses Selalu</p>
+            <h2 class="title-kenangan">Kenangan Terindah Kita</h2>
+        </div>
+
+        <div class="gallery">
+            <div class="polaroid" style="--r: -5deg">
+                <img src="kita1.jpeg" alt="Foto 1">
+                <p>Saat kita ketawa tapi kamu kepleset wkwk</p>
+            </div>
+            <div class="polaroid" style="--r: 3deg">
+                <img src="kita3.jpeg" alt="Foto 2">
+                <p>Petualangan kita yang tak terlupakan</p>
+            </div>
+            <div class="polaroid" style="--r: -2deg">
+                <img src="kita2.jpeg" alt="Foto 3">
+                <p>Nonton bioskop malem malem heheh kmuu mewek mlu</p>
+            </div>
+        </div>
+<div class="gallery">
+    </div>
+
+<div class="video-section">
+    <div class="video-wrapper">
+        <video id="videoUltah" controls>
+            <source src="kita4.mp4" type="video/mp4">
+        </video>
+        <p class="video-caption">Tonton sampai habis yaa ❤️</p>
+    </div>
+</div>
+        <div class="wish-section">
+            <h2>Make a Wish Dulu! ✨</h2>
+            <div class="cake-container">
+                <div class="cake">🎂</div>
+                <div class="candles">
+                    <span class="candle" onclick="tiupLilin(this)">🔥</span>
+                    <span class="candle" onclick="tiupLilin(this)">🔥</span>
+                    <span class="candle" onclick="tiupLilin(this)">🔥</span>
+                </div>
+            </div>
+            <button id="btnTiup" class="btn-action hidden" onclick="munculkanSurat()">Tiup Lilinnya Sekarang!</button>
+        </div>
+
+        <div id="surat" class="card-letter hidden">
+            <div class="card-header">Buat Hani ❤️</div>
+            <div class="card-body">
+                <p>Hi Hani,</p>
+                <p>Happy birthday ya! Gak kerasa banget udah ulang tahun lagi. Jujur aku seneng banget bisa ngerayain hari ini bareng kamu.</p>
+                <p>Semoga di umur yang baru ini, kamu makin happy, makin bersinar, dan semua wishlist kamu tahun ini checklist semua! Keep being you, kamu luar biasa.</p>
+                <p>Jangan lupa istirahat kalau capek, ya!</p>
+                <div class="level-up">Happy Level Up! 🚀</div>
+                <button class="btn-simpan" onclick="alert('Pesan tersimpan di hati!')">Simpan Suratnya</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
